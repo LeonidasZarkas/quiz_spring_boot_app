@@ -2,7 +2,9 @@ package com.example.Quiz.controllers;
 
 import com.example.Quiz.dtos.AnswerDto;
 import com.example.Quiz.models.Answer;
+import com.example.Quiz.models.Question;
 import com.example.Quiz.services.AnswerServiceInterface;
+import com.example.Quiz.services.QuestionServiceInterface;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +21,19 @@ public class TestController {
   
   @Autowired
   AnswerServiceInterface answerServiceInterface;     
+  
+  @Autowired
+  QuestionServiceInterface questionServiceInterface;     
     
+  @GetMapping("/getallquestions")
+  public List<Question> getAllQuestions() {
+      List<Question> questionList = new ArrayList<>();
+      questionList = questionServiceInterface.getAllQuestions();
+    return questionList;
+  }
+  
   @GetMapping("/getallanswers")
-  public List<AnswerDto> getallanswers() {
+  public List<AnswerDto> getAllAnswers() {
       List<Answer> answerList = new ArrayList<>();
       List<AnswerDto> answerDtoList = new ArrayList<>();
       
