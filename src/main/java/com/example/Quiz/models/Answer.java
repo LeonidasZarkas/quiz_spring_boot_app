@@ -102,7 +102,8 @@ public class Answer implements Serializable {
 
     @Override
     public String toString() {
-        return answerid + ". " + answer;
+        return answerid + " " + answer + " question id: " + qid.getQid();
     }
+
 
 }
